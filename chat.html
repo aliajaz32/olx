@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDxNUdU_WLF1e6oll8fmNeagDUPSpF8Ncg",
+    authDomain: "olx-app-634a8.firebaseapp.com",
+    databaseURL: "https://olx-app-634a8.firebaseio.com",
+    projectId: "olx-app-634a8",
+    storageBucket: "olx-app-634a8.appspot.com",
+    messagingSenderId: "725169758501"
+  };
+  firebase.initializeApp(config);
+</script>
+    
+    <script src="./scripts/app.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body >
+    <script>
+        var app = angular.module('chatApp', ['firebase']);
+
+app.controller('ChatController', function($scope, $firebaseArray) {
+    var ref = firebase.database().ref().child('messages');
+    $scope.messages = $firebaseArray(ref);
+
+    $scope.send = function() {
+        $scope.messages.$add({
+            message: $scope.messageText,
+            date: Date.now()
+        })
+    }
+
+})
+    </script>
+    <br>
+    <div ng-controller="ChatController"  class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Web Based Firebase Chat Application</div>
+            <div class="panel-body">
+                <p ng-repeat="m in messages">{{m.message}} - {{m.date | date:'medium'}}</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Message here..." ng-model="messageText">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

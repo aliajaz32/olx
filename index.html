@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OLX-</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="./images/favicon.ico">
+    <style>
+    *{
+      padding: 0px;
+      margin:0px;
+    }
+    #loginBtn{
+        color: black
+    }
+    #loginBtn:hover{
+        color: royalblue;
+        transition: 0.5s ease
+    }
+    #Sell{
+      color: white
+    }
+    #now12{
+    width :100%;
+  }
+    @media only screen and (max-width: 600px) {
+  body {
+    background-color: blue;
+  }
+ 
+}
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script>
+        if ('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./sw.js')
+      .then(res=>{
+        console.info('service worker instaled')
+      })
+      .catch(err=>{
+        console.log('not supported sw',err)
+      })
+        }
+        else{
+            console.log('erref')
+        }
+        </script>
+    <nav  style="background-color:whitesmoke;border: transparent" class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+                <img width="70" src="./images/23_OLX-512 (1).png" alt="olx logo" style="float: left;">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                <input type="text" placeholder="pakistan" style="padding:15px;border:2px solid black;width: 300px;margin-left:30px">  
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <input id="searchValue" type="text" style="padding:15px;border:2px solid black;width: 500px" placeholder="Find Cars , Mobiles , Phones and More">
+                        <button onclick="search()" style="height: 53px;background-color: royalblue" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                          </button>
+                    </li>
+                    <li  style="text-align:center;"><a onclick="logout();" id="loginBtn" ><span class="glyphicon glyphicon-log-in"></span>
+                            LogIn</a></li>
+                    <li style="text-align:center;background-color: royalblue"><a id="Sell" href="./sale.html" ><span class="glyphicon glyphicon-log-in"></span>
+                            Sell</a></li>
+                </ul>
+            </div>
+
+        </div><br>
+      </nav>
+      <nav>
+          <select name="" id="categoryMain">
+              <option value="cars">cars</option>
+              <option value="accessories">accessories</option>
+              <option value="mobiles">mobiles</option>
+          </select>
+      </nav>
+
+
+      
+
+
+
+
+  <div>
+    <img id="now12"  src="./images/Untitled.png" alt="">
+  </div>
+
+
+  <div id="mobile"> 
+<h1>mobiles</h1>
+  </div>
+  <div id="accessories">
+    <br>
+    <h1>accessories</h1>
+
+  </div>
+
+  <div id="cars"> <br>
+<h1>cars</h1>
+  </div>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDxNUdU_WLF1e6oll8fmNeagDUPSpF8Ncg",
+    authDomain: "olx-app-634a8.firebaseapp.com",
+    databaseURL: "https://olx-app-634a8.firebaseio.com",
+    projectId: "olx-app-634a8",
+    storageBucket: "olx-app-634a8.appspot.com",
+    messagingSenderId: "725169758501"
+  };
+  firebase.initializeApp(config);
+</script>
+ 
+    <script src="./scripts/app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

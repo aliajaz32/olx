@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sell items</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin:0px
+        }
+        #form {
+            /* background-color: whitesmoke; */
+            margin-left: auto;
+            margin-right: auto;
+            /* display: inline; */
+            width: 500px;
+            border:1px solid grey;
+            padding :15px 
+        }
+        #category{
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+<div id="category">
+        <h1>plz select your category</h1>
+        <label for="sel1">Select list (select one):</label>
+        <select id="category1" class="form-control" id="sel1">
+          <option>cars</option>
+          <option>mobiles</option>
+          <option>accessories</option>
+        </select>
+</div>
+    <div id="form">
+        <h2>plz post your add</h2>
+        <h3>condition</h3>
+        <div class="dropdown">
+            <label for="sel1">Select list (select one):</label>
+            <select id="condition"  class="form-control" id="sel1">
+              <option>new</option>
+              <option>used</option>
+             
+            </select>
+        </div>
+        <h3>type</h3>
+        <div class="dropdown">
+            <label for="sel1">Select list (select one):</label>
+      <select id="brand" class="form-control" >
+        <option>nokia</option>
+        <option>samsung</option>
+        <option>qmobile</option>
+        <option>motorolla</option>
+      </select>
+        </div>
+
+<br>
+        <label class="btn btn-default">
+            Browse
+            <br> 
+            <input id="inputfile" type="file" hidden>
+        </label>
+
+                
+        <div>
+            <h3>name</h3>
+            <input id="name1" type="text" class="form-control">
+        </div>
+        <div>
+            <h3>discription</h3>
+            <input id="name2" type="text" class="form-control">
+        </div>
+
+
+        <button class="btn btn-primary" id="upload" onclick="upload()" type="submit">submitt</button>
+<div id="status"></div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDxNUdU_WLF1e6oll8fmNeagDUPSpF8Ncg",
+            authDomain: "olx-app-634a8.firebaseapp.com",
+            databaseURL: "https://olx-app-634a8.firebaseio.com",
+            projectId: "olx-app-634a8",
+            storageBucket: "olx-app-634a8.appspot.com",
+            messagingSenderId: "725169758501"
+        };
+        firebase.initializeApp(config);
+        </script>
+<script src="./scripts/app.js"></script>
+</body>
+
+</html>
